@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Influqo</title>
+  <meta name="description" content="Review your selected items, apply promotional discounts, and proceed to checkout at Influqo.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/branding/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('influqo_theme_v1');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="header-left">
+        <button type="button" class="mobile-menu-btn" id="mobileMenuToggleBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="Influqo Homepage">
+          <img src="assets/images/branding/influqo-logo.png" alt="Influqo" class="logo-light-mode" width="160" height="46">
+          <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" class="logo-dark-mode" width="160" height="46">
+        </a>
+      </div>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html" class="nav-link">Categories</a>
+        <a href="shop.html?deal=true" class="nav-link">Deals</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-search-wrap">
+        <form class="header-search-form" role="search">
+          <input type="search" class="header-search-input" placeholder="Search products..." aria-label="Search catalogue">
+          <button type="submit" class="header-search-submit" aria-label="Submit search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn theme-toggle-btn" aria-label="Switch to dark mode" title="Switch theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="account.html" class="icon-btn" aria-label="Demo customer account" title="Demo Account">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" title="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-counter wishlist-count-badge">0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Shopping Cart" title="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="badge-counter cart-count-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" role="dialog" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/images/branding/influqo-logo.png" alt="Influqo" class="logo-light-mode" width="130" height="38">
+      <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" class="logo-dark-mode" width="130" height="38">
+      <button type="button" class="icon-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="index.html" class="mobile-drawer-link">Home</a></li>
+      <li><a href="shop.html" class="mobile-drawer-link">Shop All Products</a></li>
+      <li><a href="shop.html?deal=true" class="mobile-drawer-link">Special Deals</a></li>
+      <li><a href="cart.html" class="mobile-drawer-link active">Shopping Cart</a></li>
+      <li><a href="wishlist.html" class="mobile-drawer-link">My Wishlist</a></li>
+      <li><a href="account.html" class="mobile-drawer-link">Demo Account</a></li>
+      <li><a href="contact.html" class="mobile-drawer-link">Contact & Inquiries</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+      <button type="button" class="btn btn-outline btn-block theme-toggle-btn">Toggle Light / Dark Mode</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="site-main section-spacing" id="mainContent">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Shopping Cart</span>
+      </nav>
+
+      <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 2rem;">Your Shopping Cart</h1>
+
+      <!-- Empty Cart State -->
+      <div id="cartEmptyState" style="display: none; text-align: center; padding: 5rem 1rem; background: var(--bg-surface); border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
+        <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--bg-surface-subtle); color: var(--text-muted); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </div>
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Your Cart is Empty</h2>
+        <p style="font-size: 0.9375rem; color: var(--text-muted); max-width: 440px; margin: 0 auto 2rem;">
+          Looks like you haven't added any products to your cart yet. Explore our imported tech, home essentials, and lifestyle finds.
+        </p>
+        <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+      </div>
+
+      <!-- Active Cart Grid -->
+      <div id="cartMainContent" class="cart-grid" style="display: none;">
+
+        <!-- Items Table -->
+        <div class="cart-table-wrap">
+          <table class="cart-table" aria-label="Cart Items">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col"><span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Remove</span></th>
+              </tr>
+            </thead>
+            <tbody id="cartTableBody">
+              <!-- Rendered by cart.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Summary & Coupon Sidebar -->
+        <aside class="cart-summary-box" aria-label="Order Summary">
+          <h2 class="summary-title">Summary</h2>
+
+          <div class="summary-row">
+            <span>Merchandise Subtotal:</span>
+            <strong id="cartSubtotalAmount">₦0</strong>
+          </div>
+
+          <div class="summary-row" id="cartDiscountRow" style="display: none; color: var(--success-color);">
+            <span>Coupon Discount:</span>
+            <strong id="cartDiscountAmount">-₦0</strong>
+          </div>
+
+          <div class="summary-row" style="color: var(--text-muted); font-size: 0.8125rem;">
+            <span>Estimated Delivery:</span>
+            <span>Calculated at checkout</span>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Estimated Total:</span>
+            <span id="cartEstimatedTotal">₦0</span>
+          </div>
+
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 1.5rem; line-height: 1.4;">
+            Delivery fees (Lagos: ₦3,500 • Abuja: ₦4,000 • Other States: ₦5,500) will be calculated after selecting your state at checkout.
+          </div>
+
+          <!-- Coupon Module -->
+          <div class="coupon-form-wrap">
+            <label for="couponCodeInput" class="form-label">Promotional Coupon</label>
+            <form id="cartCouponForm" class="coupon-input-group">
+              <input type="text" id="couponCodeInput" class="form-control" placeholder="Try INFLUQO10" aria-label="Coupon code input">
+              <button type="submit" class="btn btn-secondary" style="padding: 0.75rem 1rem;">Apply</button>
+            </form>
+            <div id="couponFeedbackMessage" class="field-error-msg" style="display: none;"></div>
+            <div id="appliedCouponNotice" style="display: none; align-items: center; justify-content: space-between; margin-top: 0.75rem; font-size: 0.8125rem; color: var(--success-color); background: var(--badge-new-bg); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm);"></div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="margin-top: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+            <a href="shop.html" class="btn btn-ghost btn-block">Continue Shopping</a>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp Action -->
+  <button type="button" class="floating-whatsapp-btn whatsapp-trigger-btn" aria-label="Chat with Influqo on WhatsApp" title="Chat with Influqo on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  </button>
+
+  <!-- WhatsApp Notice Modal -->
+  <div class="whatsapp-modal-backdrop" id="whatsappModalBackdrop"></div>
+  <div class="whatsapp-modal" id="whatsappModal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle" aria-hidden="true">
+    <div style="width: 52px; height: 52px; border-radius: 50%; background: #E8F8EE; color: #25D366; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </div>
+    <h3 id="waModalTitle" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">WhatsApp Integration Notice</h3>
+    <p class="whatsapp-modal-text" style="font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+      WhatsApp contact will be connected before launch.
+    </p>
+    <button type="button" class="btn btn-secondary btn-block" id="whatsappModalCloseBtn">Understood</button>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" aria-label="Influqo Homepage">
+          <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" width="150" height="42">
+        </a>
+        <p>Influqo imports everyday goods from China for Nigerian customers. Sourcing made straightforward and dependable.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Catalogue</a></li>
+          <li><a href="shop.html?deal=true">Special Deals</a></li>
+          <li><a href="cart.html">View Cart</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Categories</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html?category=gadgets">Gadgets & Accessories</a></li>
+          <li><a href="shop.html?category=home">Home & Kitchen</a></li>
+          <li><a href="shop.html?category=fashion">Fashion & Bags</a></li>
+          <li><a href="shop.html?category=beauty">Beauty & Personal Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact & Sourcing Inquiry</a></li>
+          <li><a href="wishlist.html">Saved Wishlist</a></li>
+          <li><button type="button" class="whatsapp-trigger-btn" style="text-align: left; padding: 0; color: inherit;">WhatsApp Chat</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Influqo Ltd. Client presentation prototype.</span>
+      <span>Sample products and prices • No real purchases or payments.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/cart.js"></script>
+</body>
+</html>

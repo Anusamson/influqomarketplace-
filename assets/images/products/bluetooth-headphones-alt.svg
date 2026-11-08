@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%" aria-label="Bluetooth Headphones">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#EEF2F9"/>
+      <stop offset="100%" stop-color="#DEE5F2"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#172678" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="600" height="600" rx="28" fill="url(#bgGrad)"/>
+  <ellipse cx="300" cy="510" rx="190" ry="24" fill="#0B1020" opacity="0.16" filter="blur(10px)"/>
+  
+    <g filter="url(#shadow)">
+      <path d="M160 330 C150 140, 450 140, 440 330" fill="none" stroke="#7E8DA6" stroke-width="26" stroke-linecap="round"/>
+      <path d="M210 215 C240 185, 360 185, 390 215" fill="none" stroke="#0B1020" stroke-width="22" stroke-linecap="round"/>
+      <g transform="translate(110, 270)">
+        <rect x="0" y="0" width="70" height="140" rx="35" fill="#0B1020"/>
+        <rect x="15" y="10" width="55" height="120" rx="28" fill="#172678"/>
+        <circle cx="42" cy="70" r="18" fill="none" stroke="#F6CD82" stroke-width="3"/>
+      </g>
+      <g transform="translate(420, 270)">
+        <rect x="0" y="0" width="70" height="140" rx="35" fill="#0B1020"/>
+        <rect x="0" y="10" width="55" height="120" rx="28" fill="#172678"/>
+        <circle cx="28" cy="70" r="18" fill="none" stroke="#F6CD82" stroke-width="3"/>
+      </g>
+    </g>
+  
+</svg>

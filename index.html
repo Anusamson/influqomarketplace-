@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Influqo | Everyday Finds, Exceptional Style — China-to-Nigeria Imports Demo</title>
+  <meta name="description" content="Explore quality gadgets, home essentials, fashion, and lifestyle items sourced from China for Nigerian customers. Client demonstration prototype.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/branding/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('influqo_theme_v1');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="header-left">
+        <button type="button" class="mobile-menu-btn" id="mobileMenuToggleBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="Influqo Homepage">
+          <img src="assets/images/branding/influqo-logo.png" alt="Influqo" class="logo-light-mode" width="160" height="46">
+          <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" class="logo-dark-mode" width="160" height="46">
+        </a>
+      </div>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html" class="nav-link">Categories</a>
+        <a href="shop.html?deal=true" class="nav-link">Deals</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-search-wrap">
+        <form class="header-search-form" role="search">
+          <label for="headerSearchInput" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Search products</label>
+          <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search gadgets, bags, home..." aria-label="Search catalogue">
+          <button type="submit" class="header-search-submit" aria-label="Submit search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn theme-toggle-btn" aria-label="Switch to dark mode" title="Switch theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <a href="account.html" class="icon-btn" aria-label="Demo customer account" title="Demo Account">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+
+        <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" title="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-counter wishlist-count-badge">0</span>
+        </a>
+
+        <a href="cart.html" class="icon-btn" aria-label="Shopping Cart" title="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="badge-counter cart-count-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" role="dialog" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/images/branding/influqo-logo.png" alt="Influqo" class="logo-light-mode" width="130" height="38">
+      <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" class="logo-dark-mode" width="130" height="38">
+      <button type="button" class="icon-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <form class="header-search-form" style="margin-bottom: 1.5rem;" role="search">
+      <input type="search" class="header-search-input" placeholder="Search products..." aria-label="Search catalogue">
+      <button type="submit" class="header-search-submit" aria-label="Submit search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+    </form>
+
+    <ul class="mobile-drawer-links">
+      <li><a href="index.html" class="mobile-drawer-link active">Home</a></li>
+      <li><a href="shop.html" class="mobile-drawer-link">Shop All Products</a></li>
+      <li><a href="shop.html?deal=true" class="mobile-drawer-link">Special Deals</a></li>
+      <li><a href="cart.html" class="mobile-drawer-link">Shopping Cart</a></li>
+      <li><a href="wishlist.html" class="mobile-drawer-link">My Wishlist</a></li>
+      <li><a href="account.html" class="mobile-drawer-link">Demo Account</a></li>
+      <li><a href="contact.html" class="mobile-drawer-link">Contact & Inquiries</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+      <button type="button" class="btn btn-outline btn-block theme-toggle-btn">
+        Toggle Light / Dark Mode
+      </button>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; text-align: center;">
+        Client demo prototype • No real purchases
+      </p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="site-main" id="mainContent">
+
+    <!-- Hero Section -->
+    <section class="hero-section" aria-label="Featured Collection Showcase">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Everyday finds. Exceptional style.</span>
+          <h1 class="hero-headline">Discover more. <br><span>Spend smarter.</span></h1>
+          <p class="hero-description">
+            Explore gadgets, home essentials, fashion and lifestyle finds selected for everyday living in Nigeria. Direct import sourcing brought to your doorstep.
+          </p>
+          <div class="hero-buttons">
+            <a href="shop.html" class="btn btn-primary">Shop the Collection</a>
+            <a href="shop.html?deal=true" class="btn btn-outline">Explore Deals</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img src="assets/images/branding/hero-showcase.jpg" alt="Curated electronics and lifestyle showcase featuring headphones, smartphone, smartwatch and fast charger" width="700" height="394" class="hero-product-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Strip -->
+    <section class="benefits-strip" aria-label="Customer Benefits">
+      <div class="container benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          </div>
+          <div>
+            <h2 class="benefit-title">Shop in Naira</h2>
+            <p class="benefit-desc">Clear demo pricing in NGN with no foreign exchange surprises.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+          <div>
+            <h2 class="benefit-title">Everyday Essentials</h2>
+            <p class="benefit-desc">Hand-picked gadgets, kitchenware, and durable travel gear.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <h2 class="benefit-title">Simple Demo Checkout</h2>
+            <p class="benefit-desc">Test simulated orders and explore state delivery options risk-free.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </div>
+          <div>
+            <h2 class="benefit-title">Chat on WhatsApp</h2>
+            <p class="benefit-desc">Direct communication channel prepared for future customer support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Tiles -->
+    <section class="section-spacing" aria-label="Browse Categories">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Explore Catalogue</span>
+            <h2 class="section-title">Shop by Category</h2>
+            <p class="section-subtitle">Discover curated imports across six everyday lifestyle categories.</p>
+          </div>
+          <a href="shop.html" class="view-all-link">
+            <span>View All</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="category-tiles-grid">
+          <a href="shop.html?category=gadgets" class="category-tile">
+            <div class="category-tile-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            </div>
+            <span class="category-tile-name">Gadgets & Accessories</span>
+          </a>
+
+          <a href="shop.html?category=home" class="category-tile">
+            <div class="category-tile-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+            <span class="category-tile-name">Home & Kitchen</span>
+          </a>
+
+          <a href="shop.html?category=fashion" class="category-tile">
+            <div class="category-tile-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </div>
+            <span class="category-tile-name">Fashion & Bags</span>
+          </a>
+
+          <a href="shop.html?category=beauty" class="category-tile">
+            <div class="category-tile-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            </div>
+            <span class="category-tile-name">Beauty & Personal Care</span>
+          </a>
+
+          <a href="shop.html?category=lighting" class="category-tile">
+            <div class="category-tile-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <span class="category-tile-name">Lighting & Power</span>
+          </a>
+
+          <a href="shop.html?category=lifestyle" class="category-tile">
+            <div class="category-tile-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <span class="category-tile-name">Lifestyle & Travel</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section-spacing" style="padding-top: 0;" aria-label="Featured Picks">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Handpicked Highlights</span>
+            <h2 class="section-title">Featured Products</h2>
+            <p class="section-subtitle">Top-rated items favored for everyday utility and premium finish.</p>
+          </div>
+          <a href="shop.html" class="view-all-link">
+            <span>Explore All</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="products-grid" id="featuredProductsGrid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="container" aria-label="Promotional Announcement">
+      <div class="promo-banner">
+        <div class="promo-banner-content">
+          <span class="promo-badge">Limited Time Selection</span>
+          <h2 class="promo-title">Small upgrades. Big everyday difference.</h2>
+          <p class="promo-text">
+            Discover functional lifestyle accessories designed to simplify your routine at home, at work, and on the road.
+          </p>
+          <a href="shop.html?deal=true" class="btn btn-primary">Shop Limited Deals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="section-spacing" aria-label="New Arrivals">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Just Landed</span>
+            <h2 class="section-title">New Arrivals</h2>
+            <p class="section-subtitle">Freshly added inventory from our recent overseas shipment manifests.</p>
+          </div>
+          <a href="shop.html?new=true" class="view-all-link">
+            <span>View New In</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="products-grid" id="newArrivalsGrid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sourcing Concept Section -->
+    <section class="brand-intro-section" aria-label="About Influqo Sourcing">
+      <div class="container brand-intro-grid">
+        <div class="brand-intro-text">
+          <span class="section-eyebrow">The Influqo Concept</span>
+          <h2 class="section-title" style="margin-bottom: 1rem;">Direct Sourcing from China for Nigerian Living</h2>
+          <p>
+            Influqo specializes in importing everyday goods directly from vetted manufacturers in China to customers across Nigeria. By streamlining the supply chain and consolidating shipping, we make functional, well-designed lifestyle products accessible without prohibitive retail markups.
+          </p>
+          <p>
+            From rechargeable electronics suited to Nigerian power realities to durable travel accessories and kitchen organizers, our catalogue focuses on practical value and reliable build quality.
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <a href="contact.html" class="btn btn-secondary">Learn About Custom Sourcing</a>
+          </div>
+        </div>
+
+        <div class="sourcing-steps-wrap">
+          <ol class="sourcing-steps-list">
+            <li class="sourcing-step-item">
+              <span class="sourcing-step-num">1</span>
+              <div>
+                <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;">Curated Factory Sourcing</h3>
+                <p style="font-size: 0.875rem; color: var(--text-muted);">We identify quality manufacturers producing durable consumer goods tested for everyday use.</p>
+              </div>
+            </li>
+            <li class="sourcing-step-item">
+              <span class="sourcing-step-num">2</span>
+              <div>
+                <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;">Direct Freight Consolidation</h3>
+                <p style="font-size: 0.875rem; color: var(--text-muted);">Air and sea freight consolidation lowers overhead and simplifies the logistics journey to Nigeria.</p>
+              </div>
+            </li>
+            <li class="sourcing-step-item">
+              <span class="sourcing-step-num">3</span>
+              <div>
+                <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;">Doorstep Nationwide Delivery</h3>
+                <p style="font-size: 0.875rem; color: var(--text-muted);">Orders are delivered through local dispatch partners to Lagos, Abuja, and all 36 Nigerian states.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating WhatsApp Action -->
+  <button type="button" class="floating-whatsapp-btn whatsapp-trigger-btn" aria-label="Chat with Influqo on WhatsApp" title="Chat with Influqo on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  </button>
+
+  <!-- WhatsApp Notice Modal -->
+  <div class="whatsapp-modal-backdrop" id="whatsappModalBackdrop"></div>
+  <div class="whatsapp-modal" id="whatsappModal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle" aria-hidden="true">
+    <div style="width: 52px; height: 52px; border-radius: 50%; background: #E8F8EE; color: #25D366; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </div>
+    <h3 id="waModalTitle" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">WhatsApp Integration Notice</h3>
+    <p class="whatsapp-modal-text" style="font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+      WhatsApp contact will be connected before launch.
+    </p>
+    <button type="button" class="btn btn-secondary btn-block" id="whatsappModalCloseBtn">Understood</button>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" aria-label="Influqo Homepage">
+          <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" width="150" height="42">
+        </a>
+        <p>
+          Influqo imports everyday goods from China for Nigerian customers. Sourcing made straightforward, dependable, and affordable.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Catalogue</a></li>
+          <li><a href="shop.html?deal=true">Special Deals</a></li>
+          <li><a href="cart.html">View Cart</a></li>
+          <li><a href="account.html">Demo Account</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Categories</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html?category=gadgets">Gadgets & Accessories</a></li>
+          <li><a href="shop.html?category=home">Home & Kitchen</a></li>
+          <li><a href="shop.html?category=fashion">Fashion & Bags</a></li>
+          <li><a href="shop.html?category=beauty">Beauty & Personal Care</a></li>
+          <li><a href="shop.html?category=lighting">Lighting & Power</a></li>
+          <li><a href="shop.html?category=lifestyle">Lifestyle & Travel</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact & Sourcing Inquiry</a></li>
+          <li><a href="wishlist.html">Saved Wishlist</a></li>
+          <li><button type="button" class="whatsapp-trigger-btn" style="text-align: left; padding: 0; color: inherit;">WhatsApp Chat</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Influqo Ltd. Client presentation prototype hosted on GitHub Pages.</span>
+      <span>Sample products and prices • No real purchases or payments.</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/shared.js"></script>
+
+  <!-- Homepage Dynamic Grid Population -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Render Featured (first 4 featured)
+      const featured = getFeaturedProducts().slice(0, 4);
+      const featuredGrid = document.getElementById('featuredProductsGrid');
+      if (featuredGrid) {
+        renderProductCards(featured, featuredGrid);
+      }
+
+      // Render New Arrivals (first 4 new arrivals)
+      const newArrivals = getNewArrivals().slice(0, 4);
+      const newGrid = document.getElementById('newArrivalsGrid');
+      if (newGrid) {
+        renderProductCards(newArrivals, newGrid);
+      }
+
+      function renderProductCards(list, container) {
+        container.innerHTML = list.map(p => {
+          const inWishlist = InfluqoStorage.isInWishlist(p.id);
+          return `
+            <article class="product-card" data-product-id="${p.id}">
+              <div class="product-card-image-wrap">
+                <a href="product.html?id=${encodeURIComponent(p.id)}" aria-label="View ${InfluqoShared.escapeHtml(p.name)}">
+                  <img src="${p.image}" alt="${InfluqoShared.escapeHtml(p.alt || p.name)}" loading="lazy" class="product-card-img">
+                </a>
+                ${p.isDeal ? `<span class="product-badge badge-deal">Deal</span>` : (p.isNewArrival ? `<span class="product-badge badge-new">New</span>` : '')}
+                <button type="button" class="wishlist-btn-toggle ${inWishlist ? 'is-active' : ''}" data-product-id="${p.id}" aria-label="${inWishlist ? 'Remove from wishlist' : 'Save to wishlist'}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="${inWishlist ? '#D32F2F' : 'none'}" stroke="${inWishlist ? '#D32F2F' : 'currentColor'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+              <div class="product-card-body">
+                <span class="product-card-category">${InfluqoShared.escapeHtml(p.categoryName)}</span>
+                <h3 class="product-card-title">
+                  <a href="product.html?id=${encodeURIComponent(p.id)}">${InfluqoShared.escapeHtml(p.name)}</a>
+                </h3>
+                <p class="product-card-desc">${InfluqoShared.escapeHtml(p.shortDescription)}</p>
+                <div class="product-card-price-row">
+                  <span class="price-current">${formatKobo(p.priceKobo)}</span>
+                  ${p.originalPriceKobo ? `<span class="price-original">${formatKobo(p.originalPriceKobo)}</span>` : ''}
+                </div>
+                <div class="product-card-actions">
+                  <button type="button" class="btn btn-secondary btn-quick-add" data-product-id="${p.id}">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        // Wire quick add & wishlist
+        container.querySelectorAll('.btn-quick-add').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const pId = this.getAttribute('data-product-id');
+            const res = InfluqoStorage.addToCart(pId, null, null, 1);
+            const p = getProductById(pId);
+            if (res.success) {
+              InfluqoShared.showToast(`Added "${p ? p.name : 'Item'}" to cart`, 'success');
+            }
+          });
+        });
+
+        container.querySelectorAll('.wishlist-btn-toggle').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const pId = this.getAttribute('data-product-id');
+            const nowIn = InfluqoStorage.toggleWishlist(pId);
+            const p = getProductById(pId);
+            this.classList.toggle('is-active', nowIn);
+            const svg = this.querySelector('svg');
+            if (nowIn) {
+              svg.setAttribute('fill', '#D32F2F');
+              svg.setAttribute('stroke', '#D32F2F');
+              InfluqoShared.showToast(`Saved "${p ? p.name : 'Item'}" to wishlist`, 'success');
+            } else {
+              svg.setAttribute('fill', 'none');
+              svg.setAttribute('stroke', 'currentColor');
+              InfluqoShared.showToast(`Removed from wishlist`, 'info');
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

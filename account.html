@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Account | Influqo</title>
+  <meta name="description" content="View your simulated customer profile, past demo orders, and saved wishlist items at Influqo.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/branding/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('influqo_theme_v1');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="header-left">
+        <button type="button" class="mobile-menu-btn" id="mobileMenuToggleBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="brand-logo" aria-label="Influqo Homepage">
+          <img src="assets/images/branding/influqo-logo.png" alt="Influqo" class="logo-light-mode" width="160" height="46">
+          <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" class="logo-dark-mode" width="160" height="46">
+        </a>
+      </div>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html?deal=true" class="nav-link">Deals</a>
+        <a href="account.html" class="nav-link active">Account</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn theme-toggle-btn" aria-label="Switch to dark mode" title="Switch theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" title="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-counter wishlist-count-badge">0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Shopping Cart" title="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="badge-counter cart-count-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true" role="dialog" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/images/branding/influqo-logo.png" alt="Influqo" class="logo-light-mode" width="130" height="38">
+      <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" class="logo-dark-mode" width="130" height="38">
+      <button type="button" class="icon-btn" id="mobileMenuCloseBtn" aria-label="Close navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="index.html" class="mobile-drawer-link">Home</a></li>
+      <li><a href="shop.html" class="mobile-drawer-link">Shop All Products</a></li>
+      <li><a href="shop.html?deal=true" class="mobile-drawer-link">Special Deals</a></li>
+      <li><a href="cart.html" class="mobile-drawer-link">Shopping Cart</a></li>
+      <li><a href="wishlist.html" class="mobile-drawer-link">My Wishlist</a></li>
+      <li><a href="account.html" class="mobile-drawer-link active">Demo Account</a></li>
+      <li><a href="contact.html" class="mobile-drawer-link">Contact & Inquiries</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="site-main section-spacing" id="mainContent">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span aria-current="page">Customer Account</span>
+      </nav>
+
+      <!-- Signed Out State -->
+      <div id="accountSignedOutView" style="display: none; text-align: center; padding: 4.5rem 1rem; background: var(--bg-surface); border-radius: var(--radius-xl); border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto;">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--bg-surface-subtle); color: var(--text-muted); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <h1 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem;">You are Signed Out</h1>
+        <p style="font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 2rem;">
+          Sign in to the simulated customer portal to review your recent demo orders and test the profile interface.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+          <a href="login.html" class="btn btn-primary">Sign In as Demo Customer</a>
+          <a href="shop.html" class="btn btn-outline">Browse Shop</a>
+        </div>
+      </div>
+
+      <!-- Signed In View -->
+      <div id="accountSignedInView" style="display: none;">
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2.5rem;">
+          <div>
+            <h1 style="font-size: 2rem; font-weight: 800;">Customer Dashboard</h1>
+            <p style="font-size: 0.9375rem; color: var(--text-muted);">Simulated profile & orders stored in browser session</p>
+          </div>
+          <button type="button" class="btn btn-outline" id="btnAccountLogout">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Sign Out</span>
+          </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 320px 1fr; gap: 2.5rem; align-items: start;">
+
+          <!-- Profile Card -->
+          <aside style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--brand-navy); color: var(--brand-gold); font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              CA
+            </div>
+
+            <h2 id="accountProfileName" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem;"></h2>
+            <span style="display: inline-block; background: var(--badge-info-bg); color: var(--badge-info-text); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+              Demo Preferred Customer
+            </span>
+
+            <div style="font-size: 0.875rem; display: flex; flex-direction: column; gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color-subtle);">
+              <div>
+                <span style="color: var(--text-muted); display: block;">Email:</span>
+                <span id="accountProfileEmail" style="font-weight: 600;"></span>
+              </div>
+              <div>
+                <span style="color: var(--text-muted); display: block;">Phone:</span>
+                <span id="accountProfilePhone" style="font-weight: 600;"></span>
+              </div>
+              <div>
+                <span style="color: var(--text-muted); display: block;">Default Region:</span>
+                <span style="font-weight: 600;">Lagos, Nigeria</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color);">
+              <a href="wishlist.html" class="btn btn-outline btn-block" style="font-size: 0.875rem;">
+                View Saved Wishlist
+              </a>
+            </div>
+          </aside>
+
+          <!-- Session Orders History -->
+          <section>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem;">Demo Order History</h2>
+
+            <!-- Empty Orders Notice -->
+            <div id="accountEmptyOrdersNotice" style="display: none; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center;">
+              <p style="color: var(--text-muted); margin-bottom: 1rem;">No demo orders have been placed in this session yet.</p>
+              <a href="shop.html" class="btn btn-secondary">Explore Products & Test Checkout</a>
+            </div>
+
+            <!-- Orders Container -->
+            <div id="accountOrdersList" style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <!-- Populated by account.js -->
+            </div>
+          </section>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0;">
+      <span>&copy; 2026 Influqo Ltd. Client presentation prototype.</span>
+      <span>Sample products and prices • No real purchases or payments.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/account.js"></script>
+</body>
+</html>

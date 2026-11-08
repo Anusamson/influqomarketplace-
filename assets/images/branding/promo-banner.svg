@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%" aria-label="Influqo Promotional Offer">
+  <defs>
+    <linearGradient id="promoBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B1020"/>
+      <stop offset="50%" stop-color="#172678"/>
+      <stop offset="100%" stop-color="#0B1020"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" rx="24" fill="url(#promoBg)"/>
+  <circle cx="1000" cy="200" r="180" fill="#F6CD82" opacity="0.15"/>
+  <circle cx="1050" cy="200" r="120" fill="none" stroke="#F6CD82" stroke-width="3" opacity="0.4"/>
+  <g transform="translate(850, 80) scale(0.7)">
+    <circle cx="200" cy="150" r="120" fill="#151D32" stroke="#F6CD82" stroke-width="4"/>
+    <ellipse cx="200" cy="150" rx="80" ry="80" fill="#0B1020"/>
+    <circle cx="200" cy="150" r="30" fill="#F6CD82"/>
+  </g>
+</svg>

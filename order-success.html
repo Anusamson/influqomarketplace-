@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Order Completed | Influqo</title>
+  <meta name="description" content="Demo order confirmation and simulated receipt for testing the Influqo store flow.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/branding/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('influqo_theme_v1');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="index.html" class="brand-logo" aria-label="Influqo Homepage">
+          <img src="assets/images/branding/influqo-logo.png" alt="Influqo" class="logo-light-mode" width="160" height="46">
+          <img src="assets/images/branding/influqo-logo-light-trimmed.png" alt="Influqo" class="logo-dark-mode" width="160" height="46">
+        </a>
+      </div>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html?deal=true" class="nav-link">Deals</a>
+        <a href="account.html" class="nav-link">Demo Account</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn theme-toggle-btn" aria-label="Switch to dark mode" title="Switch theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="cart.html" class="icon-btn" aria-label="Shopping Cart" title="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="badge-counter cart-count-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main section-spacing" id="mainContent">
+    <div class="container" style="max-width: 760px;">
+
+      <!-- Direct Access Without Order -->
+      <div id="noOrderFallback" style="display: none; text-align: center; padding: 4rem 1.5rem; background: var(--bg-surface); border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--bg-surface-subtle); color: var(--text-muted); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        </div>
+        <h1 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">No Recent Demo Order Found</h1>
+        <p style="font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 2rem;">
+          You arrived at this confirmation page directly without an active demo checkout session.
+        </p>
+        <a href="shop.html" class="btn btn-primary">Go to Shop</a>
+      </div>
+
+      <!-- Valid Order View -->
+      <div id="orderDetailsWrap" style="display: none;">
+
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--badge-new-bg); color: var(--success-color); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span style="display: inline-block; background: var(--brand-gold); color: #151B2D; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); margin-bottom: 0.5rem;">SIMULATED PROTOTYPE</span>
+          <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem;">Demo Order Completed</h1>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">
+            Order reference: <strong id="orderIdText" style="color: var(--text-main);"></strong>
+          </p>
+        </div>
+
+        <!-- Demonstration Disclaimer Banner -->
+        <div style="background: var(--bg-surface-subtle); border-left: 4px solid var(--brand-gold); padding: 1.25rem 1.5rem; border-radius: var(--radius-md); font-size: 0.875rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.5;">
+          <strong style="color: var(--text-main); display: block; margin-bottom: 0.25rem;">Demonstration Notice:</strong>
+          This is a simulated order. <strong>No real payment has been charged</strong>, and no physical shipment will be dispatched. All customer names, addresses, and transaction references are test values created for client presentation.
+        </div>
+
+        <!-- Order Receipt Card -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 2rem;">
+          <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color);">
+            Receipt Summary
+          </h2>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.875rem; margin-bottom: 1.75rem;">
+            <div>
+              <span style="color: var(--text-muted); display: block;">Recipient:</span>
+              <strong id="receiptCustomerName" style="font-size: 0.9375rem;"></strong>
+              <div id="receiptCustomerAddress" style="color: var(--text-muted); margin-top: 0.2rem;"></div>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block;">Payment Status:</span>
+              <strong id="receiptPaymentStatus" style="color: var(--success-color);">Demo Payment Completed</strong>
+              <div id="receiptPaymentRef" style="color: var(--text-muted); margin-top: 0.2rem; font-family: monospace;"></div>
+            </div>
+          </div>
+
+          <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Purchased Items
+          </h3>
+
+          <div id="receiptItemsList" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="summary-row">
+            <span>Merchandise Subtotal:</span>
+            <strong id="receiptSubtotal">₦0</strong>
+          </div>
+          <div class="summary-row" id="receiptDiscountRow" style="display: none; color: var(--success-color);">
+            <span>Coupon Discount:</span>
+            <strong id="receiptDiscount">-₦0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Sample Delivery Fee:</span>
+            <strong id="receiptDelivery">₦0</strong>
+          </div>
+          <div class="summary-row total-row" style="font-size: 1.25rem;">
+            <span>Total Simulated Charge:</span>
+            <strong id="receiptTotal" style="color: var(--brand-navy);">₦0</strong>
+          </div>
+        </div>
+
+        <!-- Post Order Action Links -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+          <a href="account.html" class="btn btn-secondary">View Demo Orders in Account</a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0;">
+      <span>&copy; 2026 Influqo Ltd. Client presentation prototype.</span>
+      <span>Sample products and prices • No real purchases or payments.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/shared.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const orderIdParam = params.get('orderId');
+
+      let order = null;
+      if (orderIdParam) {
+        order = InfluqoStorage.getDemoOrderById(orderIdParam);
+      }
+      
+      // Fallback: If no order ID param, check if there's any order in sessionStorage
+      if (!order) {
+        const allOrders = InfluqoStorage.getDemoOrders();
+        if (allOrders.length > 0) {
+          order = allOrders[0];
+        }
+      }
+
+      const noOrderBox = document.getElementById('noOrderFallback');
+      const orderBox = document.getElementById('orderDetailsWrap');
+
+      if (!order) {
+        if (noOrderBox) noOrderBox.style.display = 'block';
+        if (orderBox) orderBox.style.display = 'none';
+        return;
+      }
+
+      if (noOrderBox) noOrderBox.style.display = 'none';
+      if (orderBox) orderBox.style.display = 'block';
+
+      // Populate order data
+      document.getElementById('orderIdText').textContent = order.orderId;
+      document.getElementById('receiptCustomerName').textContent = order.customer.name;
+      document.getElementById('receiptCustomerAddress').textContent = `${order.customer.address}, ${order.customer.city}, ${order.customer.state}`;
+      document.getElementById('receiptPaymentRef').textContent = `Ref: ${order.payment.reference} (${order.payment.channel})`;
+      document.getElementById('receiptSubtotal').textContent = formatKobo(order.subtotalKobo);
+      document.getElementById('receiptDelivery').textContent = formatKobo(order.deliveryKobo);
+      document.getElementById('receiptTotal').textContent = formatKobo(order.totalKobo);
+
+      if (order.discountKobo > 0) {
+        const discRow = document.getElementById('receiptDiscountRow');
+        const discEl = document.getElementById('receiptDiscount');
+        if (discRow && discEl) {
+          discRow.style.display = 'flex';
+          discEl.textContent = `-${formatKobo(order.discountKobo)}`;
+        }
+      }
+
+      const itemsList = document.getElementById('receiptItemsList');
+      if (itemsList && order.items) {
+        itemsList.innerHTML = order.items.map(item => `
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9375rem;">
+            <div>
+              <strong>${InfluqoShared.escapeHtml(item.name)}</strong>
+              <div style="font-size: 0.8125rem; color: var(--text-muted);">
+                ${item.variantName ? `${InfluqoShared.escapeHtml(item.variantName)} • ` : ''}Qty: ${item.quantity}
+              </div>
+            </div>
+            <span>${formatKobo(item.lineTotalKobo)}</span>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>
